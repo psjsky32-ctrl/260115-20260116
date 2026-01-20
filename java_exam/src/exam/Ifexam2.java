@@ -2,6 +2,8 @@ package exam;
 
 public class Ifexam2 {
 
+
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int money = 1_000_000;
@@ -15,6 +17,10 @@ public class Ifexam2 {
 		
 		int totalMoney =  (adultOneWayFlightFare * 2) +kidOneWayFlightFare;
 		
+		//int flightFare =0;
+		//flightFare += getFlightFare(fater);
+		//flightFare += getFlightFare(mother);
+		//flightFare += getFlightFare(daughter);
 		if(father >= 19) {
 			System.out.println("성인이고 가격은 300_000입니다.");
 		}
