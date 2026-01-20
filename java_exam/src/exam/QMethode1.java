@@ -59,9 +59,7 @@ public class QMethode1 {
 		return getFizzBuzzResult;
 	}
 	
-	//public static 
-	
-	
+
 	
 	public static String getEvenOdd(int number1, int number2) {
 		
