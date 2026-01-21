@@ -6,11 +6,11 @@ public class Hw {
 		
 		int amount = subjA + subjB +subjC + subjD + subjE;
 		double average = calcAverage(amount, 5);
-		;
 		String grade = calcgrade(average);
 		return grade;
 		
 	}
+	//return amount/(double) subjectCount;
 	public static double calcAverage(int amount, int subjectCount) {
 		double result = 0;
 		if(subjectCount != 0) {
@@ -36,6 +36,6 @@ public class Hw {
 	
 	public static void main(String[] arg) {
 		String grade = computeGrade(100, 95, 80 ,85, 70);
-		System.out.println("최종 학점: " + grade);
+		System.out.println(grade);
 	}
 }
