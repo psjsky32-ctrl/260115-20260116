@@ -7,6 +7,13 @@ public class Q1 {
 	int cpp;
 	int csharp;
 	
+	public Q1(int java, int python, int cpp, int csharp) {
+		this.java = java;
+		this.python = python;
+		this.cpp = cpp;
+		this.csharp = csharp;
+	}
+	
 	public int getSumAllScores() {
 		int sumAllScores = java + python + cpp + csharp;
 		return sumAllScores;

@@ -27,6 +27,15 @@ public class Car {
 	 * </pre>
 	 */
 	int speed;
+	/**
+	 * 자동차의 모델 명
+	 */
+	String name;
+	//기본생성자
+	public Car(String name) {
+		this.name = name; //this : 멤버 변수     = 파라미터
+		
+	}
 	
 	
 	//인스턴스 메소드같은경우는 static을 사용하지 않는다.

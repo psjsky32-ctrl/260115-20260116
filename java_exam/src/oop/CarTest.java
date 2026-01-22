@@ -4,7 +4,7 @@ public class CarTest {
 	
 	public static void main(String[] args) {
 		
-		Car car = new Car();
+		Car car = new Car("KONA");
 		System.out.println(car);
 		//car의 엔진 상태를 출력한다.
 		
@@ -21,7 +21,7 @@ public class CarTest {
 		
 		
 		
-		Car carnival = new Car();
+		Car carnival = new Car("Carnival");
 		System.out.println(carnival);
 		
 		carnival.pressGasolinPedal(200);

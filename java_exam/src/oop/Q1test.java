@@ -4,11 +4,8 @@ public class Q1test {
 	
 	public static void main(String[] args) {
 		
-		Q1 score = new Q1();
-		score.java = 80;
-		score.python = 71;
-		score.cpp = 61;
-		score.csharp = 51;
+		Q1 score = new Q1(80, 78, 55, 45);
+
 		
 		
 		

@@ -12,6 +12,6 @@ public class Q2test {
 		
 		System.out.println("isInsertCoin" + game.isInsertCoin);
 		System.out.println("남은 인형: " + game.dolls);
-		System.out.println("남은 코인: " + result);
+		System.out.println("뽑0은 인형: " + result);
 	}
 }
