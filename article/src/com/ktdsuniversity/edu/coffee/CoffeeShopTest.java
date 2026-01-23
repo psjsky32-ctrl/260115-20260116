@@ -19,6 +19,12 @@ public class CoffeeShopTest {
 		price = starbuck.orderCoffee(0, 10);
 		System.out.println(price);
 		
-		
+	/*
+	 * private hot.name
+	 * 
+	 * getName 객체에 저장된 값을 불러올 때
+	 * setName 객체에 값을 할당 할 때
+	 * 
+	 */
 	}
 }
