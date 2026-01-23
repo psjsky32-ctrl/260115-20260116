@@ -14,10 +14,8 @@ public class JapangiArray {
 		this.drinks[3] = d;
 	}
 	
-	public int orderCaffeine(int number,int quantity) {
 		
 		
-	}
 	
 	public void ibgo(int number, int quantity) {
 		
