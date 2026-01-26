@@ -15,4 +15,3 @@ public class Q27866 {
 		sc.close();
 	}
 }
-z
