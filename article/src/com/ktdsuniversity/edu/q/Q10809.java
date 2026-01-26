@@ -19,13 +19,10 @@ public class Q10809 {
 	 */
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
+		String s = sc.nextLine();
 		
-		String s = sc.next();
-		//int i = sc.nextInt();
-		
-		//System.out.println(S.charAt(i - 1));
 		int[] alphabet = new int[26];
-		for (int i = 0; i < 26; i++) {
+		for (int i = 0; i < alphabet.length; i++) {
 			alphabet[i] = -1;
 		}
 		
