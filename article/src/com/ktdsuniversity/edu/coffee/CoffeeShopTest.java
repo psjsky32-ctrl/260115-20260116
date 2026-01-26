@@ -8,12 +8,13 @@ public class CoffeeShopTest {
 		Coffee iceCoffee = new Coffee("아바라", 4000, 60);		
 		
 		
-		CoffeeShop starbuck = new CoffeeShop(hotCoffee, iceCoffee);
+		//CoffeeShop starbuck = new CoffeeShop(hotCoffee, iceCoffee);
+		CoffeeShop starbuck = new CoffeeShop();
 		
-		int price = starbuck.orderCoffee(1, 3);
+		int price = starbuck.orderCoffee();
 		System.out.println(price);
 		
-		price = starbuck.orderCoffee(2, 6);
+		price = starbuck.orderCoffee(2);
 		System.out.println(price);
 				
 		price = starbuck.orderCoffee(0, 10);

@@ -10,9 +10,40 @@ public class CoffeeShop {
 	 */
 	Coffee ice;;
 	
+	
+	public CoffeeShop() {
+		//this.hot = new Coffee("기본 아메리카노", 1500, 30);
+		//this.ice = new Coffee("아이스 아메리카노", 1500, 50);
+		this(new Coffee("기본 아메리카노", 1500, 30),
+				new Coffee("아이스 아메리카노", 1500, 50));//생성자 호출
+	}
+	
 	public CoffeeShop(Coffee hot, Coffee ice) {
 		this.hot = hot;
 		this.ice = ice;
+	}
+	
+	
+	public void setIce(Coffee ice) {
+		this.ice = ice;
+	}
+	
+	/**
+	 * 가장 첫 번째 메뉴를 한 개 주문한다.
+	 */
+	public int orderCoffee() {
+		int price = this.orderCoffee( 1 );
+		return price;
+	}
+	
+	/**
+	 * 메뉴 한개만 주문한다.
+	 * @param menu
+	 * @return
+	 */
+	public int orderCoffee(int menu) {
+		int price = this.orderCoffee(menu, 1);
+		return price;
 	}
 	
 	/**
@@ -27,8 +58,6 @@ public class CoffeeShop {
 		
 		//int stock = this.hot.getStock();
 		//stock = this.ice.getStock();
-		
-		
 		if(menu == 1) {
 			if(this.hot.getStock() >= quantity) {
 			System.out.println(this.hot.getName() + "음료를" + quantity + "개 주문 받았습니다.");
