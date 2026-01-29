@@ -8,12 +8,12 @@ public class MartTest {
 //		int usePoint = (int)(Math.random() * point + 1);
 //		System.out.println(usePoint);
 		
-		Guest guest = new Guest(200_000, 0);
+		Guest guest = new Guest(200_000, 10000);
 		Guest guest2 = new VIP(300_000, 300);
-		Guest guest3 = new VVIP(300_000, 0);
+		Guest guest3 = new VVIP(300_000, 10000);
 		
 		
-		AbstractMart mart = new DepartmentStore(1500);
+		AbstractMart mart = new DepartmentStore(3500);
 		mart.sell(guest, 5, 20000);
 		mart.sell(guest2, 5, 30000);
 		mart.sell(guest3, 5, 40000);

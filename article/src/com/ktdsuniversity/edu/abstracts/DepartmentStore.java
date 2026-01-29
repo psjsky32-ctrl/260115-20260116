@@ -12,11 +12,17 @@ public class DepartmentStore extends AbstractMart{
 	//쓸지 말지 물어본다
 	@Override
 	public int usePoint(Guest guest) {
-		if(guest.getPoint() <= 10000) {
-			
-			return guest.getPoint();
-		}
-		return 0;
+	    if (guest.getPoint() >= 10000) {
+	        if (Math.random() > 0.5) {
+	            int point = guest.getPoint();
+	            guest.addPoint(-point);      
+	            System.out.println("포인트를 " + point + "만큼 사용합니다.");
+	            return point;            
+	        }else {
+	        	System.out.println("포인트를 사용하지 않습니다");
+	        }
+	    }
+	    return 0;
 	}
 	
 	@Override
