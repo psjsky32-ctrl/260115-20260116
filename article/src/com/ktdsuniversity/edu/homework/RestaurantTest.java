@@ -1,32 +1,44 @@
 package com.ktdsuniversity.edu.homework;
+
+import com.ktdsuniversity.edu.homework.custom.*;
+
 /**
  * 
  */
 public class RestaurantTest {
 	public static void main(String[] args) {
+		try {
+			Customer customer = new Customer();
+			customer.Status(30, 20);
 
-		Customer customer = new Customer();
-		int totalPrice = 0;
+			Menu[] menus = { new Menu("제육볶음", 20, 0, 6000, 10), new Menu("돈까스", 25, 0, 6500, 10),
+					new Menu("국밥", 15, 0, 5000, 10), new Menu("참이슬", 0, 10, 4000, 10),
+					new Menu("처음처럼", 0, 10, 4000, 10), new Menu("진로", 0, 10, 4000, 10) };
 
-		Menu[] menus = { new Menu("제육볶음", 20, 0, 6000), new Menu("돈까스", 25, 0, 6500), new Menu("국밥", 15, 0, 5000),
-				new Menu("참이슬", 0, 10, 4000), new Menu("처음처럼", 0, 10, 4000), new Menu("진로", 0, 10, 4000) };
+			Restaurant restA = new Restaurant("A식당", 50, 60);
 
-		Restaurant restA = new Restaurant(50, 60);
+			int menuIndex = 4;
+			int orderCount = 10;
 
-		customer.Status(30, 20);
+			if (menuIndex >= menus.length || menuIndex < 0) {
+				throw new ArrayIndexOutOfBoundsException("존재하지 않는 메뉴 번호입니다.");
+			}
 
-		if (restA.canAccept(customer)) {
-			totalPrice += customer.order(menus[0], 3);
-			totalPrice += customer.order(menus[3], 3);
+			restA.checkAcceptance(customer, menus[menuIndex], orderCount);
+
+			int totalPrice = customer.order(menus[menuIndex], orderCount);
+
+			System.out.println("총 주문 금액: " + totalPrice);
 			System.out.println("주문 성공");
-		} else {
-			System.out.println("집에 가세요.");
-		}
 
-		System.out.println("----------------------");
-		System.out.println("최종 배부름: " + customer.getCustomerFull());
-		System.out.println("최종 취함: " + customer.getAlcoholFull());
-		System.out.println("총 결제 금액: " + totalPrice + "원");
+		} catch (FullException fe) {
+			System.out.println(fe.getMessage());
+		} catch (DrunkenException dke) {
+			System.out.println(dke.getMessage());
+		} catch (StockException se) {
+			System.out.println(se.getMessage());
+		} catch (MoneyException me) {
+			System.out.println(me.getMessage());
+		}
 	}
 }
-

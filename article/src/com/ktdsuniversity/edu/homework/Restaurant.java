@@ -8,25 +8,28 @@ import com.ktdsuniversity.edu.homework.custom.*;
  * 판단합니다 B 식당 사장님은 배부름이 80보다 크면 손님을 받지 않는다 B 식당 사장님은 알콜 비율 80보다 크면 손님을 받지 않는다
  */
 public class Restaurant {
+	private String name;
 	private int fullLimit;
 	private int alcoholLimit;
-	
-	public Restaurant(int fullLimit, int alcoholLimit) {
+
+	public Restaurant(String name, int fullLimit, int alcoholLimit) {
+		this.name = name;
 		this.fullLimit = fullLimit;
 		this.alcoholLimit = alcoholLimit;
 	}
-	
-	public boolean canAccept(Customer customer) {
-		
-		if (customer.getCustomerFull() > this.fullLimit) {
-			throw new FullException("이미 배가 너무 부른 상태입니다!");
-		}
-		
-		if (customer.getAlcoholFull() > this.alcoholLimit) {
-			throw new DrunkenException("너무 많이 취하셨습니다. 귀가하세요.");
-		}
-				
-		return true;
-	}
 
+	public void checkAcceptance(Customer customer, Menu menu, int count) {
+		if (menu == null)
+			throw new NullPointerException("메뉴 정보가 없습니다.");
+
+		if (customer.getCustomerFull() > this.fullLimit) {
+			throw new FullException("배불렁");
+		}
+		if (customer.getAlcoholFull() > this.alcoholLimit) {
+			throw new DrunkenException("너무 취함");
+		}
+		if (menu.getStock() < count) {
+			throw new StockException("재고가 없다");
+		}
+	}
 }

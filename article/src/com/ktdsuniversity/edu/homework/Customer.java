@@ -1,5 +1,14 @@
 package com.ktdsuniversity.edu.homework;
 
+import com.ktdsuniversity.edu.homework.custom.*;
+
+/**
+ * 1.새삥인 손님 2.중고인 손님 A식당 사장님은 배부름이 50 보다 크면 손님을 받지않는다 손님이 음식을 주문하면 음식마다의 무게만큼
+ * 배부름 정도가 채워집니다. CustomerFull에 menuWeight *orderMenuCount 만큼을 더해준다. A식당 사장님은 알콜
+ * 비율 60 보다 높으면 손님을 받지 않는다 손님이 술을 주문하면 술 마다의 알콜 비율의 10% 만큼 취함 정도가 증가합니다.
+ * alcoholWeight = 10 alcoholFull에 = alcoholWeight * alcoholCount
+ */
+
 /**
  * 1.새삥인 손님 2.중고인 손님 A식당 사장님은 배부름이 50 보다 크면 손님을 받지않는다 손님이 음식을 주문하면 음식마다의 무게만큼
  * 배부름 정도가 채워집니다. CustomerFull에 menuWeight *orderMenuCount 만큼을 더해준다. A식당 사장님은 알콜
@@ -10,6 +19,7 @@ package com.ktdsuniversity.edu.homework;
 public class Customer {
 	private int customerFull;
 	private int alcoholFull;
+	private int money = 50000;
 
 	public void Status(int full, int alcohol) {
 		this.customerFull = full;
@@ -17,25 +27,29 @@ public class Customer {
 	}
 
 	public int order(Menu menu, int count) {
+		if (menu == null)
+			throw new NullPointerException("메뉴 정보가 없습니다.");
+
+		int totalPrice = menu.getPrice() * count;
+		if (this.money < totalPrice) {
+			throw new MoneyException("잔액 부족");
+		}
+
 		if (menu.getAlcohol() > 0) {
 			this.alcoholFull += menu.getAlcoholWeight() * count;
 		} else {
 			this.customerFull += menu.getMenuWeight() * count;
 		}
+
+		this.money -= totalPrice;
+		menu.setStock(menu.getStock() - count);
+
 		System.out.println(menu.getMenuName() + " " + count + "개 주문 완료.");
-		return menu.getPrice() * count;
+		return totalPrice;
 	}
 
 	public int getCustomerFull() {
 		return customerFull;
-	}
-
-	public void setCustomerFull(int full) {
-		this.customerFull = full;
-	}
-
-	public void setAlcogolFull(int alcohol) {
-		this.alcoholFull = alcohol;
 	}
 
 	public int getAlcoholFull() {
