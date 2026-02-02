@@ -9,7 +9,7 @@ public class RestaurantTest {
 	public static void main(String[] args) {
 		try {
 			Customer customer = new Customer();
-			customer.Status(30, 20);
+			customer.Status(30, 10);
 
 			Menu[] menus = { new Menu("제육볶음", 20, 0, 6000, 10), new Menu("돈까스", 25, 0, 6500, 10),
 					new Menu("국밥", 15, 0, 5000, 10), new Menu("참이슬", 0, 10, 4000, 10),
@@ -17,7 +17,7 @@ public class RestaurantTest {
 
 			Restaurant restA = new Restaurant("A식당", 50, 60);
 
-			int menuIndex = 4;
+			int menuIndex = 8;
 			int orderCount = 10;
 
 			if (menuIndex >= menus.length || menuIndex < 0) {
@@ -39,6 +39,8 @@ public class RestaurantTest {
 			System.out.println(se.getMessage());
 		} catch (MoneyException me) {
 			System.out.println(me.getMessage());
+		} catch(ArrayIndexOutOfBoundsException aio) {
+			System.out.println(aio.getMessage());
 		}
 	}
 }
