@@ -34,9 +34,10 @@ public class AirplaneReservation {
 				System.out.println();
 				//좌석 꽉참
 				boolean isAllFull = true;
+				//좌석 리스트안에 있는 티켓을 하나씩 꺼내서 검사
 				for (Tickets t : seats) {
-					if (!t.isReserve()) {
-						isAllFull = false;
+					if (!t.isReserve()) {//예약가능상태라면
+						isAllFull = false;//예약하기
 						break;
 					}
 				}
