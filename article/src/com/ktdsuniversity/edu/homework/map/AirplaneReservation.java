@@ -14,7 +14,8 @@ public class AirplaneReservation {
 			System.out.print("비행기 편의 이름을 입력하세요: ");
 
 			String flightNumber = sc.next();
-
+			// 처음 보는 비행기 편명이라면 → 좌석 생성
+			// 1번부터 9번 좌석까지 생성
 			if (!flightMap.containsKey(flightNumber)) {
 				List<Tickets> newSeats = new ArrayList<>();
 				for (int i = 1; i <= 9; i++) {
@@ -22,7 +23,7 @@ public class AirplaneReservation {
 				}
 				flightMap.put(flightNumber, newSeats);
 			}
-
+			// 해당 비행기의 좌석 리스트 가져오기
 			List<Tickets> seats = flightMap.get(flightNumber);
 
 			while (true) {
@@ -31,7 +32,7 @@ public class AirplaneReservation {
 					System.out.print(seats.get(i) + (i == seats.size() - 1 ? "" : ", "));
 				}
 				System.out.println();
-
+				//좌석 꽉참
 				boolean isAllFull = true;
 				for (Tickets t : seats) {
 					if (!t.isReserve()) {
