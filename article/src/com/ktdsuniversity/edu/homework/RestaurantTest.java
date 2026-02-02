@@ -17,14 +17,14 @@ public class RestaurantTest {
 
 			Restaurant restA = new Restaurant("A식당", 50, 60);
 
-			int menuIndex = 0;
-			int orderCount = 0;
+			int menuIndex = 4;
+			int orderCount = 10;
 
 			if (menuIndex >= menus.length || menuIndex < 0) {
 				throw new ArrayIndexOutOfBoundsException("존재하지 않는 메뉴 번호입니다.");
 			}
 
-			restA.checkAcceptance(customer, menus[4], 11);
+			restA.checkAcceptance(customer, menus[menuIndex], orderCount);
 
 			int totalPrice = customer.order(menus[menuIndex], orderCount);
 
