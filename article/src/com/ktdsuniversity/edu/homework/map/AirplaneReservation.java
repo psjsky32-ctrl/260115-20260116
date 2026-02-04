@@ -6,22 +6,30 @@ public class AirplaneReservation {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		Random random = new Random();
-
+		//하나의 데이터가 Key:Value 쌍으로 이루어진 자료구조
+		//비행기번호 Key: String
+		//자리 Value :List<Tickets>
+		//HashMap<>:사용자가 입력한 key를 Hash함수로 계산된 값을 index로 사용하는 배열에 value를 담는 개념으로 Map 구현한 자료형이다.
+		// 비행기번호 → 예약 티켓 목록을 매핑하는 자료구조
+		
+		// HashMap : 키-값 쌍을 저장하는 가장 일반적인 Map 구현체
+		// 내부적으로 해시 함수를 이용해 키를 배열 인덱스로 변환 후 값을 저장
+		// key   : 비행기 번호 (String)
+		// value : 해당 비행기의 티켓 리스트 (List<Tickets>)
+		// 비행기 번호(String)를 키로, 해당 비행기의 예약 티켓 목록(List<Tickets>)을 값으로 가지는 맵
 		Map<String, List<Tickets>> flightMap = new HashMap<>();
-
 		while (true) {
 			System.out.println("\n비행기 편의 이름을 입력하면, 좌석 현황을 볼 수 있습니다.");
 			System.out.print("비행기 편의 이름을 입력하세요: ");
 
 			String flightNumber = sc.next();
 			// 처음 보는 비행기 편명이라면 → 좌석 생성
-			// 1번부터 9번 좌석까지 생성
 			if (!flightMap.containsKey(flightNumber)) {
 				List<Tickets> newSeats = new ArrayList<>();
-				for (int i = 1; i <= 9; i++) {
-					newSeats.add(new Tickets(i, random.nextBoolean()));
+				for (int i = 1; i <= 9; i++) {// 1번부터 9번 좌석까지 생성
+					newSeats.add(new Tickets(i, random.nextBoolean()));// 1~9번 좌석의 o x일 확률은 50프로
 				}
-				flightMap.put(flightNumber, newSeats);
+				flightMap.put(flightNumber, newSeats);//새로 만든 좌석(newSeats) 리스트를 flightNumber 연결하여 map에 저장
 			}
 			// 해당 비행기의 좌석 리스트 가져오기
 			List<Tickets> seats = flightMap.get(flightNumber);

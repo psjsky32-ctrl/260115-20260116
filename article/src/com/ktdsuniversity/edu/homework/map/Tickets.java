@@ -17,23 +17,23 @@ public class Tickets {
 		return reserve;
 	}
 
-	public void setReserve(boolean reserve) {
+	void setReserve(boolean reserve) {
 		this.reserve = reserve;
 	}
 
-//	@Override
-//	public String toString() {
-//		String status;
-//		if (this.reserve) {
-//			status = "X";
-//		} else {
-//			status = "O";
-//		}
-//		return seatNumber + ": " + status;
-//	}
-
 	@Override
 	public String toString() {
-		return seatNumber + ": " + (reserve ? "X" : "O");
+		String status;
+		if (this.reserve) {
+			status = "X";
+		} else {
+			status = "O";
+		}
+		return seatNumber + ": " + status;
 	}
 }
+//	@Override
+//	public String toString() {
+//		return seatNumber + ": " + (reserve ? "X" : "O");
+//	}
+//}

@@ -14,10 +14,10 @@ public class CoffeeShopTest {
 		int price = starbuck.orderCoffee();
 		System.out.println(price);
 		
-		price = starbuck.orderCoffee(2);
+		price = starbuck.orderCoffee(Menu.HOT);
 		System.out.println(price);
 				
-		price = starbuck.orderCoffee(0, 10);
+		price = starbuck.orderCoffee(Menu.ICE, 10);
 		System.out.println(price);
 		
 	/*
