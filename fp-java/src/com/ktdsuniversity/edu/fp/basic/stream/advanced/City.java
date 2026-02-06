@@ -1,4 +1,4 @@
-package com.ktdsuniversity.edu.fp.basic.stream;
+package com.ktdsuniversity.edu.fp.basic.stream.advanced;
 
 
 import java.io.File;
